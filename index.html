@@ -5,9 +5,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Loaf Of Bread Studio</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: 'Nunito', sans-serif;
@@ -36,7 +42,9 @@ nav a {
   margin-left: 25px;
 }
 
-nav a:hover { color: #ff5485; }
+nav a:hover {
+  color: #ff5485;
+}
 
 .hero {
   min-height: 650px;
@@ -57,13 +65,40 @@ nav a:hover { color: #ff5485; }
   z-index: 2;
 }
 
-.hero h1 span { color: #ff4380; }
+.hero h1 span {
+  color: #ff4380;
+}
 
 .hero p {
   font-size: 21px;
   font-weight: 800;
   margin: 30px auto;
   max-width: 550px;
+}
+
+/* LOAFMATRIX BUTTON */
+
+.matrix-button {
+  display: inline-block;
+  padding: 18px 35px;
+  background: #282044;
+  color: #39ff75;
+  border: 3px solid #39ff75;
+  border-radius: 50px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+  position: relative;
+  z-index: 1001;
+  box-shadow: 0 6px 0 #161126;
+}
+
+.matrix-button:hover {
+  transform: translateY(-4px);
+  background: #39ff75;
+  color: #111;
 }
 
 .bread {
@@ -79,8 +114,12 @@ nav a:hover { color: #ff5485; }
 .b4 { bottom: 12%; left: 15%; animation-delay: 1.5s; }
 
 @keyframes float {
-  0%,100% { transform: translateY(0) rotate(-10deg); }
-  50% { transform: translateY(-22px) rotate(12deg); }
+  0%,100% {
+    transform: translateY(0) rotate(-10deg);
+  }
+  50% {
+    transform: translateY(-22px) rotate(12deg);
+  }
 }
 
 .about {
@@ -127,13 +166,17 @@ nav a:hover { color: #ff5485; }
   transition: .3s;
 }
 
-.card:hover { transform: rotate(-2deg) translateY(-8px); }
+.card:hover {
+  transform: rotate(-2deg) translateY(-8px);
+}
 
 .card:nth-child(1) { background: #ff7c9f; }
 .card:nth-child(2) { background: #a88bff; }
 .card:nth-child(3) { background: #ffca45; }
 
-.card .emoji { font-size: 48px; }
+.card .emoji {
+  font-size: 48px;
+}
 
 .card h3 {
   font-family: 'Fredoka', sans-serif;
@@ -170,20 +213,75 @@ footer h2 {
   font-size: 40px;
 }
 
-footer p { margin-top: 15px; }
+footer p {
+  margin-top: 15px;
+}
+
+/* MATRIX CANVAS */
+
+#matrixCanvas {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+body.matrix-active {
+  overflow: hidden;
+}
+
+/* BUTTON STAYS VISIBLE IN MATRIX MODE */
+
+body.matrix-active .matrix-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #001a08;
+  color: #39ff75;
+  border-color: #39ff75;
+  box-shadow: 0 0 15px #39ff75;
+}
+
+body.matrix-active .matrix-button:hover {
+  background: #39ff75;
+  color: #000;
+}
 
 @media(max-width:600px) {
-  nav { flex-direction: column; gap: 18px; }
-  nav a { margin: 0 8px; }
-  .hero { padding: 100px 5%; }
-  .bread { font-size: 40px; }
+  nav {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  nav a {
+    margin: 0 8px;
+  }
+
+  .hero {
+    padding: 100px 5%;
+  }
+
+  .bread {
+    font-size: 40px;
+  }
+
+  .matrix-button {
+    font-size: 15px;
+    padding: 15px 22px;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <nav>
   <div class="logo">🍞 Loaf Of Bread Studio</div>
+
   <div>
     <a href="#about">About</a>
     <a href="#services">What We Do</a>
@@ -192,56 +290,223 @@ footer p { margin-top: 15px; }
 </nav>
 
 <section class="hero">
+
   <div class="bread b1">🍞</div>
   <div class="bread b2">🥖</div>
   <div class="bread b3">🥐</div>
   <div class="bread b4">🍞</div>
 
   <h1>WE MAKE<br><span>COOL STUFF.</span></h1>
-  <p>Not a bakery. Not your average studio. Just a whole lot of creativity, personality, and a little bit of bread.</p>
+
+  <p>
+    Not a bakery. Not your average studio.
+    Just a whole lot of creativity, personality,
+    and a little bit of bread.
+  </p>
+
+  <button
+    class="matrix-button"
+    id="matrixToggle"
+    aria-pressed="false"
+  >
+    ENTER LOAFMATRIX ⚡
+  </button>
+
 </section>
 
 <section class="about" id="about">
-  <h2 class="section-title">WAIT... WHAT ARE WE? 👀</h2>
+
+  <h2 class="section-title">
+    WAIT... WHAT ARE WE? 👀
+  </h2>
+
   <p>
     We're Loaf Of Bread Studio! A creative little corner
     of the internet where ideas get BIG, imagination runs wild,
     and boring is simply not invited.
     And yes, we really are called Loaf Of Bread Studio.
   </p>
+
 </section>
 
 <section class="services" id="services">
+
   <h2>THE GOOD STUFF 💥</h2>
+
   <div class="cards">
+
     <div class="card">
       <div class="emoji">🎨</div>
       <h3>Creative Projects</h3>
       <p>Big ideas, colorful concepts, and fun creations.</p>
     </div>
+
     <div class="card">
       <div class="emoji">✨</div>
       <h3>Our Experiments</h3>
       <p>Trying things, making things, and having fun along the way.</p>
     </div>
+
     <div class="card">
       <div class="emoji">🚀</div>
       <h3>Something Different</h3>
       <p>We're here to do things our own way. Always.</p>
     </div>
+
   </div>
+
 </section>
 
 <section class="fun">
+
   <h2>STAY A LITTLE LOAFY 🍞</h2>
-  <p>Life's too short for boring websites and boring ideas.</p>
+
+  <p>
+    Life's too short for boring websites and boring ideas.
+  </p>
+
 </section>
 
 <footer id="contact">
+
   <h2>Loaf Of Bread Studio 🍞</h2>
   <p>NOT A BAKERY.</p>
   <p>© 2026 Loaf Of Bread Studio</p>
+
 </footer>
+
+<!-- MATRIX EFFECT -->
+
+<canvas id="matrixCanvas"></canvas>
+
+<script>
+
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext("2d");
+
+const button = document.getElementById("matrixToggle");
+
+const characters =
+  "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコサシスセソ";
+
+let drops = [];
+let fontSize = 17;
+let animationId = null;
+let matrixActive = false;
+
+function resizeCanvas() {
+
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  canvas.width = window.innerWidth * dpr;
+  canvas.height = window.innerHeight * dpr;
+
+  canvas.style.width = window.innerWidth + "px";
+  canvas.style.height = window.innerHeight + "px";
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  const columns = Math.ceil(window.innerWidth / fontSize);
+
+  drops = Array.from(
+    { length: columns },
+    () => Math.random() * -100
+  );
+}
+
+function drawMatrix() {
+
+  if (!matrixActive) return;
+
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  // Fade previous frames to create falling trails
+  ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+  ctx.fillRect(0, 0, width, height);
+
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+
+    const character =
+      characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+
+    const x = i * fontSize;
+    const y = drops[i] * fontSize;
+
+    // Random bright green characters
+    ctx.fillStyle =
+      Math.random() > 0.96 ? "#ffffff" : "#39ff75";
+
+    ctx.fillText(character, x, y);
+
+    if (y > height && Math.random() > 0.975) {
+      drops[i] = 0;
+    }
+
+    drops[i] += Math.random() > 0.98 ? 1.8 : 0.65;
+  }
+
+  animationId = requestAnimationFrame(drawMatrix);
+}
+
+function startMatrix() {
+
+  if (matrixActive) return;
+
+  matrixActive = true;
+
+  document.body.classList.add("matrix-active");
+
+  canvas.style.display = "block";
+
+  button.textContent = "EXIT LOAFMATRIX ✕";
+  button.setAttribute("aria-pressed", "true");
+
+  resizeCanvas();
+
+  ctx.fillStyle = "#000";
+  ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+  drawMatrix();
+}
+
+function stopMatrix() {
+
+  matrixActive = false;
+
+  cancelAnimationFrame(animationId);
+
+  canvas.style.display = "none";
+
+  document.body.classList.remove("matrix-active");
+
+  button.textContent = "ENTER LOAFMATRIX ⚡";
+  button.setAttribute("aria-pressed", "false");
+}
+
+button.addEventListener("click", () => {
+
+  if (matrixActive) {
+    stopMatrix();
+  } else {
+    startMatrix();
+  }
+
+});
+
+window.addEventListener("resize", () => {
+
+  if (matrixActive) {
+    resizeCanvas();
+  }
+
+});
+
+</script>
 
 </body>
 </html>
