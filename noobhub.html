@@ -212,6 +212,48 @@ header {
     font-size: 16px;
 }
 
+/* Delta VR */
+
+.delta-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #edf2ff;
+    color: #356cf6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.delta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    padding: 12px 17px;
+    background: #356cf6;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: .2s;
+}
+
+.delta-button:hover {
+    background: #2457d9;
+    transform: translateY(-2px);
+}
+
+.delta-button span {
+    font-size: 17px;
+}
+
+/* Labels */
+
 .tool-label {
     display: block;
     margin-top: 15px;
@@ -298,7 +340,7 @@ footer {
 
                     <path d="M107.7 8.07A105.15 105.15 0 0 0
                     81.47 0a72.06 72.06 0 0 a-3.36 6.84
-                    97.68 97.68 0 0 a-29.58 0A72.06 72.06 0
+                    97.68 97.68 0 a-29.58 0A72.06 72.06 0
                     0 a-3.36-6.84A105.15 105.15 0 a-26.23 8.07
                     C2.35 32.95-2.15 57.21.6 81.12a105.73
                     105.73 0 a32.32 16.3 78.15 78.15 0
@@ -380,7 +422,34 @@ footer {
 
         </div>
 
-        <!-- Add more tool cards here -->
+        <!-- Delta VR -->
+
+        <div class="tool">
+
+            <div class="delta-icon">
+                <span>Δ</span>
+            </div>
+
+            <h3>Delta VR</h3>
+
+            <p>
+                A standalone Gorilla Tag mod menu
+                for VR.
+            </p>
+
+            <a class="delta-button"
+               href="DeltaV67.apk"
+               download="DeltaV67.apk">
+
+                Download APK <span>↓</span>
+
+            </a>
+
+            <span class="tool-label">APK Download</span>
+
+        </div>
+
+        <!-- Add more cards here -->
 
     </div>
 
