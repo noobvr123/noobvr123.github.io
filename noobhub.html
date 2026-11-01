@@ -1,11 +1,306 @@
-<div class="tool">
-    <div class="tool-icon">💬</div>
-    <h3>Discord Server</h3>
-    <p>Join my Discord community!</p>
-    <a class="github"
-       href="https://discord.gg/JVtGG5qeN"
-       target="_blank"
-       rel="noopener noreferrer">
-        Join Discord ↗
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NoobHub | noobvr123</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #f5f6f8;
+    --white: #ffffff;
+    --text: #202632;
+    --muted: #788394;
+    --blue: #356cf6;
+    --border: #e7eaf0;
+    --discord: #5865F2;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+/* Header */
+
+header {
+    height: 76px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+.back {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.back:hover {
+    color: var(--blue);
+}
+
+/* Main */
+
+.container {
+    max-width: 950px;
+    margin: 75px auto;
+    padding: 20px;
+}
+
+/* Heading */
+
+.heading {
+    margin-bottom: 35px;
+}
+
+.heading h1 {
+    font-size: 36px;
+    letterletter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.heading p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* Grid */
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+/* Cards */
+
+.tool {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 27px;
+    transition: .2s;
+}
+
+.tool:hover {
+    border-color: #c7d3f8;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #182c4a0b;
+}
+
+.tool h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.tool p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* Discord */
+
+.discord-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--discord);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+}
+
+.discord-icon svg {
+    width: 29px;
+    height: 29px;
+    fill: currentColor;
+}
+
+.discord-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+    padding: 12px 17px;
+    background: var(--discord);
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: .2s;
+}
+
+.discord-button:hover {
+    background: #4752C4;
+    transform: translateY(-2px);
+}
+
+.discord-button span {
+    font-size: 16px;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding: 25px;
+    color: #929baa;
+    font-size: 12px;
+}
+
+/* Mobile */
+
+@media(max-width: 600px) {
+
+    header {
+        padding: 0 18px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .container {
+        margin: 45px auto;
+        padding: 16px;
+    }
+
+    .heading h1 {
+        font-size: 30px;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        noobvr<span>123.</span>
+    </div>
+
+    <a class="back" href="index.html">
+        ← Back to website
     </a>
-</div>
+
+</header>
+
+<main class="container">
+
+    <div class="heading">
+
+        <h1>NoobHub</h1>
+
+        <p>
+            A collection of useful tools, resources,
+            and places worth checking out.
+        </p>
+
+    </div>
+
+    <div class="tools-grid">
+
+        <!-- Discord -->
+
+        <div class="tool">
+
+            <div class="discord-icon">
+
+                <svg viewBox="0 0 127.14 96.36"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <path d="M107.7 8.07A105.15 105.15 0 0 0
+                    81.47 0a72.06 72.06 0 0 0-3.36 6.84
+                    97.68 97.68 0 0 0-29.58 0A72.06 72.06 0
+                    0 0 45.17 0 105.15 105.15 0 0 a18.94
+                    8.07C2.35 32.95-2.15 57.21.6 81.12a105.73
+                    105.73 0 0 a32.32 16.3 78.15 78.15 0
+                    0 a6.92-11.18 67.71 67.71 0 a-10.9-5.2
+                    c.92-.68 1.82-1.38 2.68-2.1a75.1 75.1 0
+                    0 a64.1 0c.88.72 1.78 1.42 2.7 2.1a67.71
+                    67.71 0 0 a-10.92 5.2 78.15 78.15 0
+                    0 a6.92 11.18 105.73 105.73 0 a32.32-16.3
+                    c3.18-27.72-5.42-51.76-22.84-73.05ZM42.5
+                    65.6c-6.3 0-11.47-5.77-11.47-12.85S36.1
+                    39.9 42.5 39.9s11.57 5.82 11.47 12.85
+                    C53.97 59.83 48.9 65.6 42.5 65.6Zm42.14
+                    0c-6.3 0-11.47-5.77-11.47-12.85S78.24
+                    39.9 84.64 39.9s11.57 5.82 11.47 12.85
+                    c0 7.08-5.17 12.85-11.47 12.85Z"/>
+
+                </svg>
+
+            </div>
+
+            <h3>Discord Community</h3>
+
+            <p>
+                Join my Discord server to chat,
+                connect, and hang out.
+            </p>
+
+            <a class="discord-button"
+               href="https://discord.gg/JVtGG5qeN"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                Join Discord
+                <span>↗</span>
+
+            </a>
+
+        </div>
+
+        <!-- Add more tool cards here -->
+
+    </div>
+
+</main>
+
+<footer>
+    © 2026 noobvr123. All rights reserved.
+</footer>
+
+</body>
+</html>
